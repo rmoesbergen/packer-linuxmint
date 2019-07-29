@@ -1,5 +1,7 @@
 #!/bin/bash -ux
 
+export DEBIAN_FRONTEND=noninteractive
+
 echo '==> Updating list of repositories'
 apt-get -y update
 
