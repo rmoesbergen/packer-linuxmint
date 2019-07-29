@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -ux
 
 echo '==> Updating list of repositories'
 apt-get -y update
@@ -7,4 +7,5 @@ apt-get -y update
 apt-get -y purge virtualbox*
 
 echo '==> Performing dist-upgrade (all packages and kernel)'
-apt-get -y dist-upgrade
+aptitude --no-gui -q -f -y full-upgrade
+aptitude --no-gui -q -f -y full-upgrade
