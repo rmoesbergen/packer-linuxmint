@@ -4,7 +4,7 @@
   "box_tag": "ajxb/mint-20.3",
   "cpus": "2",
   "disk_size": "20000",
-  "iso_checksum": "sha256:50b833f1f093c029bfb7ba6148c9ce96619c01a83e92f35287983fbd62f26b01",
+  "iso_checksum": "sha256:e739317677c2261ae746eee5f1f0662aa319ad0eff260d4eb7055d7c79d10952",
   "iso_url": "https://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/20.3/linuxmint-20.3-cinnamon-64bit.iso",
   "memory": "4096",
   "preseed": "mint-20.seed",
