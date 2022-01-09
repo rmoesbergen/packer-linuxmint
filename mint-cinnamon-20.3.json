@@ -1,0 +1,15 @@
+{
+  "_comment": "Built with `packer build -var-file=mint-cinnamon-20.3.json core_template.json`",
+  "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "box_tag": "ajxb/mint-20.3",
+  "cpus": "2",
+  "disk_size": "20000",
+  "iso_checksum": "sha256:50b833f1f093c029bfb7ba6148c9ce96619c01a83e92f35287983fbd62f26b01",
+  "iso_url": "https://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/20.3/linuxmint-20.3-cinnamon-64bit.iso",
+  "memory": "4096",
+  "preseed": "mint-20.seed",
+  "vagrantfile_template": "tpl/vagrantfile-mint-cinnamon-20.tpl",
+  "version": "1.0.4",
+  "version_description": "Linux Mint 20.3 with VirtualBox Guest Additions 6.1.30",
+  "vm_name": "mint-cinnamon-20.3"
+}
