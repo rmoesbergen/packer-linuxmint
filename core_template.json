@@ -13,16 +13,17 @@
       "headless": "{{ user `headless` }}",
       "boot_command": [
         "{{ user `boot_command_prefix` }}",
-        "/casper/vmlinuz ",
+        "set gfxpayload=keep<enter>",
+        "linux /casper/vmlinuz ",
         "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `preseed` }} ",
         "boot=casper ",
         "initrd=/casper/initrd.lz ",
         "debug-ubiquity ",
         "automatic-ubiquity ",
-        "quiet ",
-        "splash ",
         "noprompt ",
-        "-- <enter>"
+        "-- <enter>",
+        "initrd /casper/initrd.lz<enter>",
+        "boot<enter>"
       ],
       "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
       "post_shutdown_delay": "1m",
@@ -44,14 +45,6 @@
         "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `version`}}.box",
         "type": "vagrant",
         "vagrantfile_template": "{{ user `vagrantfile_template` }}"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "{{user `box_tag`}}",
-        "access_token": "{{user `cloud_token`}}",
-        "version": "{{user `version`}}",
-        "version_description": "{{user `version_description`}}",
-        "no_release": true
       }
     ]
   ],
@@ -72,7 +65,6 @@
       "pause_before": "60s",
       "scripts": [
         "script/vagrant.sh",
-        "script/install_puppet.sh",
         "script/virtualbox.sh",
         "script/motd.sh",
         "script/cleanup.sh"
