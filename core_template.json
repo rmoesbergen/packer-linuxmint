@@ -2,8 +2,10 @@
   "builders": [
     {
       "vm_name": "{{user `vm_name`}}",
+      "cpus": "2",
+      "memory": "4096",
       "type": "virtualbox-iso",
-      "guest_os_type": "Ubuntu_64",
+      "guest_os_type": "Ubuntu22_LTS_64",
       "http_directory": "http",
       "iso_url": "{{ user `iso_url` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
@@ -25,15 +27,16 @@
         "initrd /casper/initrd.lz<enter>",
         "boot<enter>"
       ],
+      "gfx_controller": "vmsvga",
+      "gfx_vram_size": "32",
       "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
-      "post_shutdown_delay": "1m",
+      "post_shutdown_delay": "30s",
       "disk_size": "{{ user `disk_size` }}",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "hard_drive_interface": "sata",
       "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "{{ user `memory` }}"],
-        ["modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"]
+        ["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]
       ]
     }
   ],
@@ -83,12 +86,10 @@
     "_comment": "Variables below should be overridden in template",
     "boot_command_prefix": "TBD",
     "box_tag": "TBD",
-    "cpus": "TBD",
     "disk_size": "TBD",
     "iso_checksum_type": "TBD",
     "iso_checksum": "TBD",
     "iso_url": "TBD",
-    "memory": "TBD",
     "preseed": "TBD",
     "vagrantfile_template": "TBD",
     "version": "TBD",
