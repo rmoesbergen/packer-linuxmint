@@ -32,8 +32,7 @@
       "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
       "post_shutdown_delay": "30s",
       "disk_size": "{{ user `disk_size` }}",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version",
+      "guest_additions_mode": "disable",
       "hard_drive_interface": "sata",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]
@@ -68,7 +67,6 @@
       "pause_before": "60s",
       "scripts": [
         "script/vagrant.sh",
-        "script/virtualbox.sh",
         "script/motd.sh",
         "script/cleanup.sh"
       ],
