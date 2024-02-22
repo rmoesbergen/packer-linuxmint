@@ -15,17 +15,14 @@
       "headless": "{{ user `headless` }}",
       "boot_command": [
         "{{ user `boot_command_prefix` }}",
-        "set gfxpayload=keep<enter>",
-        "linux /casper/vmlinuz ",
+        "/casper/vmlinuz ",
         "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `preseed` }} ",
         "boot=casper ",
         "initrd=/casper/initrd.lz ",
         "debug-ubiquity ",
         "automatic-ubiquity ",
         "noprompt ",
-        "-- <enter>",
-        "initrd /casper/initrd.lz<enter>",
-        "boot<enter>"
+        "-- <enter>"
       ],
       "gfx_controller": "vmsvga",
       "gfx_vram_size": "32",
